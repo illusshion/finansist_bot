@@ -96,6 +96,26 @@ async def _send_summary(target: types.Message, user_id: int, username: str | Non
 
 @router.message(Command("report"))
 async def cmd_report(m: types.Message):
+@router.message(Command("day"))
+async def cmd_day(m: types.Message):
+    d1, d2 = period_preset("day")
+    await _send_summary(m, m.from_user.id, m.from_user.username, d1, d2, None, edit=False)
+
+@router.message(Command("week"))
+async def cmd_week(m: types.Message):
+    d1, d2 = period_preset("week")
+    await _send_summary(m, m.from_user.id, m.from_user.username, d1, d2, None, edit=False)
+
+@router.message(Command("month"))
+async def cmd_month(m: types.Message):
+    d1, d2 = period_preset("month")
+    await _send_summary(m, m.from_user.id, m.from_user.username, d1, d2, None, edit=False)
+
+@router.message(Command("year"))
+async def cmd_year(m: types.Message):
+    d1, d2 = period_preset("year")
+    await _send_summary(m, m.from_user.id, m.from_user.username, d1, d2, None, edit=False)
+
     d1, d2 = period_preset("day")
     await _send_summary(m, m.from_user.id, m.from_user.username, d1, d2, None, edit=False)
 
